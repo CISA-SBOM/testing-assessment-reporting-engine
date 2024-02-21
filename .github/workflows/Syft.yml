@@ -9,7 +9,7 @@
 
 
 name: Syft SBOM Scan
-
+ 
 on:
   push:
     branches: [ "main" ]
