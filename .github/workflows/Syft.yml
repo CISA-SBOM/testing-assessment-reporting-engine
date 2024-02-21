@@ -12,13 +12,13 @@ name: Syft SBOM Scan
  
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "develop" ]
 
 jobs:
   sbom-scan:
     permissions:
       contents: write
-    runs-on: self-hosted, windows-latest 
+    runs-on: self-hosted, Windows
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3
