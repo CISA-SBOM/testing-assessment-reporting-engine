@@ -6,7 +6,7 @@
 # This workflow checks out code, builds an image, performs a container image
 # scan with Anchore's Syft tool, and uploads the results to the GitHub Dependency
 # submission API.
- 
+  
 
 name: Syft SBOM Scan
  
