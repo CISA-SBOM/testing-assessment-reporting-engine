@@ -8,7 +8,7 @@
 # submission API.
   
 
-name: Syft SBOM Scan
+name: Syft SBOM Scan 
  
 on: 
   push:
