@@ -10,7 +10,7 @@
 
 name: Syft SBOM Scan
  
-on:
+on: 
   push:
     branches: [ "develop" ]
 
