@@ -42,7 +42,7 @@ jobs:
 
   results:
     name: Results
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     needs: analyze
     steps:
       - name: Upload Syft SBOM Results
