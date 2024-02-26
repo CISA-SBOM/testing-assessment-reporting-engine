@@ -1,0 +1,54 @@
+name: Test Scan 
+ 
+on: 
+  push:
+    branches: [ "develop" ]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          # Add commands to install dependencies here
+      - name: Build project
+        run: |
+          # Add commands to build the project here
+
+  analyze:
+    name: Syft SBOM Scan
+    runs-on: self-hosted
+    needs: build
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+      - name: SPDX Scan
+        uses: anchore/sbom-action@v0
+        with:
+          format: spdx-json
+          artifact-name: spdx.json
+          # Add any additional SPDX scan options if available
+      - name: CycloneDX Scan
+        uses: anchore/sbom-action@v0
+        with:
+          format: cyclonedx-json
+          artifact-name: cdx.json
+          # Add any additional CycloneDX scan options if available
+
+  results:
+    name: Results
+    runs-on: self-hosted
+    needs: analyze
+    steps:
+      - name: Upload Syft SBOM Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: sbom-results
+          path: |
+            spdx.json
+            cdx.json
