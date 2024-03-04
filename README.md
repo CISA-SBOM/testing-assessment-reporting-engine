@@ -374,6 +374,6 @@ In the current version, collaborating on the same screen as another user is not 
 
 <a name='troubleshooting'></a>
 
-## Troubleshooting
+## Troubleshooting 
 
 It is recommended to refer to Docker and Django documentation for troubleshooting guidance. This section will be updated at a later time to reflect common issues.
