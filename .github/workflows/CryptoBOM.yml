@@ -9,7 +9,7 @@ on:
 jobs:
   build-matrix:
     name: Build analysis matrix
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     outputs:
       repositories: ${{ steps.build-matrix-action.outputs.repositories }}
     steps:
@@ -21,7 +21,7 @@ jobs:
           minimumLanguageBytes: 0
   run-cbom-action:
     name: ${{ fromJson(matrix.repository).nameWithOwner }} - ${{ fromJson(matrix.repository).language }}
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: build-matrix
     continue-on-error: true
     strategy:
@@ -35,7 +35,7 @@ jobs:
           language: ${{ fromJson(matrix.repository).language }}
   add-workflow-summary:
     name: CBOM results
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: run-cbom-action
     steps:
       - uses: advanced-security/cbom-action/workflow-summary@v1
