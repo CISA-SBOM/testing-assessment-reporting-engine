@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3
@@ -34,7 +34,7 @@ jobs:
 
   results:
     name: Results
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: build
     steps:
       - name: Upload SPDX JSON
