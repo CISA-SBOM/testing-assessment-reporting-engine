@@ -18,7 +18,7 @@ jobs:
   sbom-scan:
     permissions:
       contents: write
-    runs-on: self-hosted
+    runs-on: on push
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3
