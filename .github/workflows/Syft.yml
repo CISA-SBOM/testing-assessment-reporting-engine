@@ -18,7 +18,7 @@ jobs:
   sbom-scan:
     permissions:
       contents: write
-    runs-on: on push
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3
