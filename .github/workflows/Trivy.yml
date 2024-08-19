@@ -12,7 +12,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: self-hosted
+    runs-on: on:push
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
